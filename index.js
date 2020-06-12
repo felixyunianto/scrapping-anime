@@ -12,18 +12,12 @@ request(url, function(err, res, body){
 
     let $ = cheerio.load(body);
 
-    $('div.bixbox.bxcl').each((i, value) => {
-        $(value).find('div.releases h3').each((l, data)=> {
-            return process.stdout.write($(data).html());
-        });
 
+    var episode = $('div.bixbox.bxcl').each((i, value) => {
         $(value).find('ul li span.lchx a').each((j, data) => {
-            return process.stdout.write($(data).text() + '\t' + $(data).attr('href') + '\n');
+            return process.stdout.write('Boruto: Next Generation'+ '\t' + $(data).text() + '\t' + $(data).attr('href') + '\n');
         });
-
-        
-    })
-
-})
+    });
+});
 
 
